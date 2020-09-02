@@ -6,8 +6,22 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        try(FileReader reader = new FileReader("notes3.txt")) {
+            // читаем посимвольно
+            int c;
+            while ((c = reader.read()) != -1) {
+
+                System.out.print((char) c);
+            }
+        }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }
+
         Scanner in = new Scanner(System.in);
         String temp;
+        System.out.println(" ");
         System.out.println("Хотите ли вы внести новый фильм? 1 - YES");
 
         temp = in.nextLine();
@@ -44,7 +58,7 @@ public class Main {
             try(FileWriter writer = new FileWriter("notes3.txt", false))
             {
                 // запись всей строки
-                String text = (Film1.Name + " "+ Film1.Director +" "+ Film1.Actor +" "+ Film1.views +" "+ Film1.Date);
+                String text = (Film1.Name +" "+ Film1.Director +" "+ Film1.Actor +" "+ Film1.views +" "+ Film1.Date);
                 writer.write(text);
                 writer.flush();
             }
