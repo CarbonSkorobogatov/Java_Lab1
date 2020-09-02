@@ -12,7 +12,7 @@ public class Medicine {
 
 
     public Medicine(){}
-    
+
     public Medicine(String Name, String Director, String Actor, String Date, int Raiting, int views){
         this.Name = Name;
         this.Director = Director;
@@ -20,12 +20,6 @@ public class Medicine {
         this.Date = Date;
         this.views = views;
 
-        if (Raiting < 7){
-            this.level = Level.HIGH;
-        }else if(Raiting < 4){
-            this.level = Level.MEDIUM;
-        }else{
-            this.level = Level.LOW;
-        }
+
     }
 }
