@@ -10,6 +10,9 @@ public class Medicine {
     }
     Level level;
 
+
+    public Medicine(){}
+    
     public Medicine(String Name, String Director, String Actor, String Date, int Raiting, int views){
         this.Name = Name;
         this.Director = Director;
