@@ -1,7 +1,6 @@
 package com.company;
 import java.util.Scanner;
 import java.io.*;
-import java.util.Arrays;
 
 public class Main {
 
@@ -28,20 +27,20 @@ public class Main {
         int fast = ParseToInt(temp);
 
         if(fast == 1){
-            Medicine Film1 = new Medicine();
+            Film Film1 = new Film();
             System.out.println("Введите название фильма");
-            Film1.Name = in.nextLine();
+            Film1.setName(in.nextLine());
 
             System.out.println("Введите режиссера фильма");
-            Film1.Director = in.nextLine();
+            Film1.setDirector(in.nextLine());
 
             System.out.println("Введите главного актера/актрису фильма");
-            Film1.Actor = in.nextLine();
+            Film1.setActor(in.nextLine());
 
             System.out.println("Введите рейтинг фильма (от 0 до 10)");
             temp = in.nextLine();
             fast = ParseToInt(temp);
-            /*Film1.level = new Medicine.Level(fast);*/
+            /*Film1.level = new Film.SetLevel(fast);*/
 
 
             System.out.println("Введите кол - во просмотра  фильма");
@@ -51,14 +50,14 @@ public class Main {
 
 
             System.out.println("Введите дату выхода фильма");
-            Film1.Date = in.nextLine();
+            Film1.setDate(in.nextLine());
 
-            System.out.println(Film1.Name + " "+ Film1.Director +" "+ Film1.Actor +" "+ Film1.views +" "+ Film1.Date);
+            System.out.println(Film1.getName() + " "+ Film1.getDirector() +" "+ Film1.getActor() +" "+ Film1.views +" "+ Film1.getDate());
 
             try(FileWriter writer = new FileWriter("notes3.txt", false))
             {
                 // запись всей строки
-                String text = (Film1.Name +" "+ Film1.Director +" "+ Film1.Actor +" "+ Film1.views +" "+ Film1.Date);
+                String text = (Film1.getName() + " "+ Film1.getDirector() +" "+ Film1.getActor() +" "+ Film1.views +" "+ Film1.getDate());
                 writer.write(text);
                 writer.flush();
             }
@@ -78,18 +77,7 @@ public class Main {
 
 
 
-    public Medicine.Level Level(int num) {
-        Medicine.Level result = Medicine.Level.LOW;
 
-
-        if (num > 7) {
-            result = Medicine.Level.HIGH;
-        } else if (num > 4) {
-            result = Medicine.Level.MEDIUM;
-        }
-
-        return result;
-    }
 
     public static int ParseToInt(String string){
         String temp;
